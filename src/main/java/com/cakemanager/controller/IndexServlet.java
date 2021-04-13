@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "IndexServlet", value = "/index")
 public class IndexServlet extends HttpServlet {
@@ -64,9 +66,10 @@ public class IndexServlet extends HttpServlet {
 
     private void listProducts(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         List<Product> products = this.indexService.selectAllProducts();
-        Category category = null;
-        for (int i=0; i<8; i++) {
-            category = this.indexService.selectCategoryByProductId(products.get(i).getProductId());
+
+        Map<Integer, String> category = new HashMap<>();
+        for (int i=0; i<10; i++) {
+            category.put(products.get(i).getProductId(), indexService.selectCategoryByProductId(products.get(i).getProductId()).getName());
         }
 
         request.setAttribute("products", products);
@@ -86,9 +89,9 @@ public class IndexServlet extends HttpServlet {
 
         List<Product> products = this.indexService.selectProduct(categoryId);
 
-        Category category = null;
-        for (int i=0; i<8; i++) {
-            category = this.indexService.selectCategoryByProductId(products.get(i).getProductId());
+        Map<Integer, String> category = new HashMap<>();
+        for (int i=0; i<10; i++) {
+            category.put(products.get(i).getProductId(), indexService.selectCategoryByProductId(products.get(i).getProductId()).getName());
         }
 
         request.setAttribute("category", category);

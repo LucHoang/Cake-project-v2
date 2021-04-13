@@ -146,15 +146,15 @@
             <li class="active"><a href="./index.jsp">Trang chủ</a></li>
             <li><a href="./about.jsp">Giới thiệu</a></li>
             <li><a href="/shop">Cửa hàng</a></li>
-            <li><a href="#">Pages</a>
-              <ul class="dropdown">
-                <li><a href="./shop-details.jsp">Shop Details</a></li>
-                <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
-                <li><a href="./checkout.jsp">Check Out</a></li>
-                <li><a href="./wisslist.jsp">Wisslist</a></li>
-                <li><a href="./Class.jsp">Class</a></li>
-                <li><a href="./blog-details.jsp">Blog Details</a></li>
-              </ul>
+<%--            <li><a href="#">Pages</a>--%>
+<%--              <ul class="dropdown">--%>
+<%--                <li><a href="./shop-details.jsp">Shop Details</a></li>--%>
+<%--                <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>--%>
+<%--                <li><a href="./checkout.jsp">Check Out</a></li>--%>
+<%--                <li><a href="./wisslist.jsp">Wisslist</a></li>--%>
+<%--                <li><a href="./Class.jsp">Class</a></li>--%>
+<%--                <li><a href="./blog-details.jsp">Blog Details</a></li>--%>
+<%--              </ul>--%>
             </li>
             <li><a href="./blog.jsp">Blog</a></li>
             <li><a href="./contact.jsp">Liên hệ</a></li>
@@ -310,7 +310,7 @@
           <a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">
           <div class="product__item__pic set-bg" data-setbg="${product.getThumbnail()}">
             <div class="product__label">
-              <span>${category.getName()}</span>
+              <span>${category.get(product.getProductId())}</span>
             </div>
           </div>
           </a>

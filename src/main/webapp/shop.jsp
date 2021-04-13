@@ -202,7 +202,7 @@
                 <div class="col-lg-5 col-md-5">
                     <div class="shop__option__search">
                         <form action="/search">
-                            <input name="text" type="text" placeholder="Search">
+                            <input name="text" type="text" placeholder="Tìm kiếm">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -227,7 +227,7 @@
                                     <a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">
                                     <div class="product__item__pic set-bg" data-setbg="${o.thumbnail}">
                                         <div class="product__label">
-                                            <span>${category.getName()}</span>
+                                            <span>${category.get(o.getProductId())}</span>
                                         </div>
                                     </div>
                                     </a>
@@ -235,7 +235,12 @@
                                         <h6><a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">${o.name}</a></h6>
                                         <div class="product__item__price">${o.unitPrice}</div>
                                         <div class="cart_add">
-                                            <a href="#">Thêm vào giỏ hàng</a>
+                                            <c:if test="${sessionScope.account != null}">
+                                                <a href="/CartServlet?action=insert&productName=${o.getName()}&productPrice=${o.getUnitPrice()}&priceTotal=${o.getUnitPrice()}&userId=${o.getUserId()}&thumbnail=${o.getThumbnail()}&productId=${o.getProductId()}">Thêm vào giỏ hàng</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.account == null}">
+                                                <a href="login.jsp">Thêm vào giỏ hàng</a>
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>
@@ -276,20 +281,6 @@
 
 <!-- Map Begin -->
 <div class="map">
-    <!--        <div class="container">-->
-    <!--            <div class="row">-->
-    <!--                <div class="col-lg-4 col-md-7">-->
-    <!--                    <div class="map__inner">-->
-    <!--                        <h6>COlorado</h6>-->
-    <!--                        <ul>-->
-    <!--                            <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>-->
-    <!--                            <li>Sweetcake@support.com</li>-->
-    <!--                            <li>+1 800-786-1000</li>-->
-    <!--                        </ul>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
     <div class="map__iframe">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14895.691654844091!2d105.7682175!3d21.0357702!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe713200541b7456d!2sCodeGym!5e0!3m2!1svi!2s!4v1617441072578!5m2!1svi!2s" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
