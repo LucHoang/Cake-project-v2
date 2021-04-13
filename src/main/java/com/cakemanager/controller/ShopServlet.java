@@ -29,10 +29,6 @@ public class ShopServlet extends HttpServlet {
 
 
         IndexService indexService = new IndexService();
-//        Category category = null;
-//        for (Product product: listProduct) {
-//            category = indexService.selectCategoryByProductId(product.getProductId());
-//        }
         Map<Integer, String> category = new HashMap<>();
         for (Product product: products) {
             category.put(product.getProductId(), indexService.selectCategoryByProductId(product.getProductId()).getName());
@@ -42,6 +38,7 @@ public class ShopServlet extends HttpServlet {
 
         request.setAttribute("listP", products);
         request.setAttribute("listC", listCategory);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("shop.jsp");
         dispatcher.forward(request, response);
 
@@ -68,5 +65,26 @@ public class ShopServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+
+        List<Product> products = productService.selectAllProducts();
+        List<Category> listCategory = productService.selectAllCategory();
+
+
+        IndexService indexService = new IndexService();
+//        Category category = null;
+//        for (Product product: listProduct) {
+//            category = indexService.selectCategoryByProductId(product.getProductId());
+//        }
+        Map<Integer, String> category = new HashMap<>();
+        for (Product product: products) {
+            category.put(product.getProductId(), indexService.selectCategoryByProductId(product.getProductId()).getName());
+        }
+        request.setAttribute("category", category);
+
+
+        request.setAttribute("listP", products);
+        request.setAttribute("listC", listCategory);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("shop.jsp");
+        dispatcher.forward(request, response);
     }
 }
