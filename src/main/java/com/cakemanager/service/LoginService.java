@@ -12,14 +12,8 @@ public class LoginService {
     private static final String SELECT_ROLL_USER = "select roll from account where email = ? and password = ?";
     public static final int NOT_FOUND_USER = -1;
 
-//    private int userId;
-//    private String name;
-//    private String password;
-//    private String emailInput;
-//    private String phone;
-//    private String address;
-//    private boolean roll;
-    public Account checkLogin(String emailInput,String passwordInput){
+
+    public Account checkLogin(String emailInput,String passwordInput)  {
         Account account = null;
         Connection connection = DatabaseConection.getConnection();
         if (connection != null) {
@@ -39,11 +33,12 @@ public class LoginService {
                     String password = resultSet.getString("password");
                     boolean roll = resultSet.getBoolean("roll");
                     account = new Account(userId,name,phone,email,address,password,roll);
+                    return account;
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
-        return account;
+        return null;
     }
 }

@@ -214,7 +214,7 @@
                                     <select name="category">
                                         <%if(product.getCategory().getName()!=null){
                                             %>
-                                                <option value="<%=product.getCategory()%>" name="" selected><%=product.getCategory().getName()%></option>
+                                                <option value="<%=product.getCategoryId()%>" name="" selected><%=product.getCategory().getName()%></option>
                                             <%;
                                         }
                                         %>
