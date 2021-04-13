@@ -221,51 +221,53 @@
         </div>
 
         <div class="row">
-            <%--            <c:forEach items="${requestScope['listP']}" var="o">--%>
-            <%--                <div class="col-lg-3 col-md-6 col-sm-6">--%>
-            <%--                    <div class="product__item">--%>
-            <%--                        <a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">--%>
-            <%--                        <div class="product__item__pic set-bg" data-setbg="${o.thumbnail}">--%>
-            <%--                            <div class="product__label">--%>
-            <%--                                <span>Cupcake</span>--%>
-            <%--                            </div>--%>
-            <%--                        </div>--%>
-            <%--                        </a>--%>
-            <%--                        <div class="product__item__text">--%>
-            <%--                            <h6><a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">${o.name}</a></h6>--%>
-            <%--                            <div class="product__item__price">${o.unitPrice}</div>--%>
-            <%--                            <div class="cart_add">--%>
-            <%--                                <a href="#">Thêm vào giỏ hàng</a>--%>
-            <%--                            </div>--%>
-            <%--                        </div>--%>
-            <%--                    </div>--%>
-            <%--                </div>--%>
-            <%--            </c:forEach>--%>
-            <c:forEach items='${requestScope["products"]}' var="product" begin="1" end="8">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">
-                            <div class="product__item__pic set-bg" data-setbg="${product.getThumbnail()}">
-                                <div class="product__label">
-                                    <span>${category.getName()}</span>
+                        <c:forEach items="${requestScope['listP']}" var="o">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">
+                                    <div class="product__item__pic set-bg" data-setbg="${o.thumbnail}">
+                                        <div class="product__label">
+                                            <span>${category.getName()}</span>
+                                        </div>
+                                    </div>
+                                    </a>
+                                    <div class="product__item__text">
+                                        <h6><a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">${o.name}</a></h6>
+                                        <div class="product__item__price">${o.unitPrice}</div>
+                                        <div class="cart_add">
+                                            <a href="#">Thêm vào giỏ hàng</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </a>
-                        <div class="product__item__text">
-                            <h6><a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">${product.getName()}</a></h6>
-                            <div class="product__item__price">${product.getUnitPrice()} $</div>
-                            <div class="cart_add">
-                                <c:if test="${sessionScope.account != null}">
-                                    <a href="/CartServlet?action=insert&productName=${product.getName()}&productPrice=${product.getUnitPrice()}&priceTotal=${product.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${product.getThumbnail()}&productId=${product.getProductId()}">Thêm vào giỏ hàng</a>
-                                </c:if>
-                                <c:if test="${sessionScope.account == null}">
-                                    <a href="login.jsp">Thêm vào giỏ hàng</a>
-                                </c:if>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+                        </c:forEach>
+
+
+<%--            <c:forEach items='${requestScope["products"]}' var="product" begin="1" end="24">--%>
+<%--                <div class="col-lg-3 col-md-6 col-sm-6">--%>
+<%--                    <div class="product__item">--%>
+<%--                        <a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">--%>
+<%--                            <div class="product__item__pic set-bg" data-setbg="${product.getThumbnail()}">--%>
+<%--                                <div class="product__label">--%>
+<%--                                    <span>${category.getName()}</span>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </a>--%>
+<%--                        <div class="product__item__text">--%>
+<%--                            <h6><a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">${product.getName()}</a></h6>--%>
+<%--                            <div class="product__item__price">${product.getUnitPrice()} $</div>--%>
+<%--                            <div class="cart_add">--%>
+<%--                                <c:if test="${sessionScope.account != null}">--%>
+<%--                                    <a href="/CartServlet?action=insert&productName=${product.getName()}&productPrice=${product.getUnitPrice()}&priceTotal=${product.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${product.getThumbnail()}&productId=${product.getProductId()}">Thêm vào giỏ hàng</a>--%>
+<%--                                </c:if>--%>
+<%--                                <c:if test="${sessionScope.account == null}">--%>
+<%--                                    <a href="login.jsp">Thêm vào giỏ hàng</a>--%>
+<%--                                </c:if>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
 
         </div>
     </div>
