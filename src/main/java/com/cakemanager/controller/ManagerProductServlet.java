@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet(name = "ManagerProductServlet", value = "/ManagerProductServlet")
 public class ManagerProductServlet extends HttpServlet {
     private ProductService productService;
     private LoginService loginService;

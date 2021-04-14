@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@WebServlet(name = "CategoryServlet", value = "/category")
 public class CategoryServlet extends HttpServlet {
     ProductService productService = new ProductService();
 

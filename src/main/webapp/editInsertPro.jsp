@@ -1,6 +1,8 @@
 <%@ page import="com.cakemanager.model.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.cakemanager.model.Category" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.

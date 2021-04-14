@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+@WebServlet(name = "ManagerOrderServlet", value = "/ManagerOrderServlet")
 public class ManagerOrderServlet extends HttpServlet {
     private OrderService orderService;
     private AccountService accountService;

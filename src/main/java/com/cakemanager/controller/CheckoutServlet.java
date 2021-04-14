@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet(name = "CheckoutServlet", value = "/CheckoutServlet")
 public class CheckoutServlet extends HttpServlet {
 
     private CheckoutService checkoutService;
