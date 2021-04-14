@@ -156,7 +156,7 @@
 <%--                <li><a href="./blog-details.jsp">Blog Details</a></li>--%>
 <%--              </ul>--%>
             </li>
-            <li><a href="./blog.jsp">Blog</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="./contact.jsp">Liên hệ</a></li>
           </ul>
         </nav>
@@ -250,7 +250,7 @@
         <div class="categories__item">
           <div class="categories__item__icon">
             <span class="flaticon-029-cupcake-3"></span>
-            <h5>Bánh cupcake</h5>
+            <h5>BÁNH QUY</h5>
           </div>
         </div>
         </a>
@@ -258,7 +258,7 @@
         <div class="categories__item">
           <div class="categories__item__icon">
             <span class="flaticon-034-chocolate-roll"></span>
-            <h5>Bơ</h5>
+            <h5>BÁNH BƠ</h5>
           </div>
         </div>
         </a>
@@ -266,7 +266,7 @@
         <div class="categories__item">
           <div class="categories__item__icon">
             <span class="flaticon-005-pancake"></span>
-            <h5>Nhung đỏ</h5>
+            <h5>BÁNH CUPCAKE</h5>
           </div>
         </div>
         </a>
@@ -274,7 +274,7 @@
         <div class="categories__item">
           <div class="categories__item__icon">
             <span class="flaticon-030-cupcake-2"></span>
-            <h5>Bánh quy</h5>
+            <h5>BÁNH DONUT</h5>
           </div>
         </div>
         </a>
@@ -282,18 +282,18 @@
         <div class="categories__item">
           <div class="categories__item__icon">
             <span class="flaticon-006-macarons"></span>
-            <h5>Bánh vòng</h5>
+            <h5>BÁNH VELVET</h5>
           </div>
         </div>
         </a>
-        <a href="/index?action=showProductCategory&id=1">
-        <div class="categories__item">
-          <div class="categories__item__icon">
-            <span class="flaticon-006-macarons"></span>
-            <h5>Cupcake</h5>
-          </div>
-        </div>
-        </a>
+<%--        <a href="/index?action=showProductCategory&id=1">--%>
+<%--        <div class="categories__item">--%>
+<%--          <div class="categories__item__icon">--%>
+<%--            <span class="flaticon-006-macarons"></span>--%>
+<%--            <h5>Cupcake</h5>--%>
+<%--          </div>--%>
+<%--        </div>--%>
+<%--        </a>--%>
       </div>
     </div>
   </div>
@@ -307,6 +307,7 @@
 <c:forEach items='${requestScope["products"]}' var="product" begin="1" end="8">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="product__item">
+
           <a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">
           <div class="product__item__pic set-bg" data-setbg="${product.getThumbnail()}">
             <div class="product__label">
@@ -314,6 +315,7 @@
             </div>
           </div>
           </a>
+
           <div class="product__item__text">
             <h6><a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">${product.getName()}</a></h6>
             <div class="product__item__price">${product.getUnitPrice()} $</div>

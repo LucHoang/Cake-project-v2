@@ -1,8 +1,6 @@
 package com.cakemanager.service;
 
-import com.cakemanager.model.Cart;
-import com.cakemanager.model.Category;
-import com.cakemanager.model.Product;
+import com.cakemanager.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -4,7 +4,7 @@ public class BlogCategory {
     private int blogCateId;
     private String blogName;
 
-    public BlogCategory() {
+    public BlogCategory(String blogCateName) {
     }
 
     public BlogCategory(int blogCateId, String blogName) {
