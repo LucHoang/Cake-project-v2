@@ -1,8 +1,10 @@
 package com.cakemanager.controller;
 
+import com.cakemanager.model.Account;
 import com.cakemanager.model.Blog;
 import com.cakemanager.model.BlogCategory;
 import com.cakemanager.service.BlogService;
+import com.cakemanager.service.CartService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,11 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@WebServlet(name = "BlogDetailServlet", value = "/blogDetail")
 public class BlogDetailServlet extends HttpServlet {
     BlogService blogService = new BlogService();
 
@@ -56,6 +60,14 @@ public class BlogDetailServlet extends HttpServlet {
             request.setAttribute("blogList", blogList);
             request.setAttribute("bCate", bCate);
             dispatcher = request.getRequestDispatcher("blog-details.jsp");
+
+            HttpSession session = request.getSession();
+            Account account = (Account) session.getAttribute("account");
+            if (account != null) {
+                CartService cartService = new CartService();
+                int count = cartService.countCart(account.getUserId());
+                request.setAttribute("count", count);
+            }
         }
         try {
             dispatcher.forward(request, response);
@@ -76,6 +88,15 @@ public class BlogDetailServlet extends HttpServlet {
         }
         request.setAttribute("blogC", blogC);
         request.setAttribute("blogsByCId", blogsByCId);
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("blog2.jsp");
         dispatcher.forward(request, response);
     }

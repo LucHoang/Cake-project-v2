@@ -1,6 +1,8 @@
 package com.cakemanager.controller;
 
+import com.cakemanager.model.Account;
 import com.cakemanager.model.Contact;
+import com.cakemanager.service.CartService;
 import com.cakemanager.service.ContactService;
 
 import javax.servlet.*;
@@ -8,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+@WebServlet(name = "ContactServlet", value = "/ContactServlet")
 public class ContactServlet extends HttpServlet {
     private ContactService contactService;
     public void init() {
@@ -19,6 +22,20 @@ public class ContactServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
 
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("contact.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

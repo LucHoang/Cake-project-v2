@@ -36,132 +36,125 @@
 <%--        <div class="loader"></div>--%>
 <%--    </div>--%>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__cart">
-            <div class="offcanvas__cart__links">
-                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                <%--      <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__cart">
+        <div class="offcanvas__cart__links">
+            <div class="shop__option__search">
+                <form action="/search">
+                    <input name="text" type="text" placeholder="Tìm kiếm">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
-            <div class="offcanvas__cart__item">
-                <c:if test="${sessionScope.account != null}">
-                    <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
-                        <div class="cart__price">Giỏ hàng</div>
-                    </a>
-                </c:if>
-                <c:if test="${sessionScope.account == null}">
-                    <a href="login.jsp"><img src="img/icon/cart.png" alt=""> <span>C</span>
-                        <div class="cart__price">Giỏ hàng</div>
-                    </a>
-                </c:if>
-            </div>
+            <%--      <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>--%>
+            <%--      <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
         </div>
-        <div class="offcanvas__logo">
-            <a href="index.jsp"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__option">
-            <ul>
-                <li>USD <span class="arrow_carrot-down"></span>
-                    <ul>
-                        <li>VNĐ</li>
-                        <li>USD</li>
-                    </ul>
-                </li>
-                <li>ENG <span class="arrow_carrot-down"></span>
-                    <ul>
-                        <li>Vietnamese</li>
-                        <li>ENG</li>
-                    </ul>
-                </li>
-                <li><a href="./login.jsp">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
-            </ul>
+        <div class="offcanvas__cart__item">
+            <c:if test="${sessionScope.account != null}">
+                <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt="">
+                    <span>${count}</span>
+                    <div class="cart__price">Giỏ hàng</div>
+                </a>
+            </c:if>
+            <c:if test="${sessionScope.account == null}">
+                <a href="login.jsp"><img src="img/icon/cart.png" alt=""> <span>C</span>
+                    <div class="cart__price">Giỏ hàng</div>
+                </a>
+            </c:if>
+            <%--      <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>--%>
+            <%--      <div class="cart__price">Giỏ hàng</div>--%>
+            <%--      </a>--%>
         </div>
     </div>
-    <!-- Offcanvas Menu End -->
+    <div class="offcanvas__logo">
+        <a href="index"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__option">
+        <ul>
+            <li><a href="./login.jsp">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
+        </ul>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="header__top__inner">
-                            <div class="header__top__left">
-                                <ul>
-                                    <li>USD <span class="arrow_carrot-down"></span>
-                                        <ul>
-                                            <li>VNĐ</li>
-                                            <li>USD</li>
-                                        </ul>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header__top__inner">
+                        <div class="header__top__left ">
+                            <ul>
+                                <c:if test="${sessionScope.account.roll}">
+                                    <li><a href="/ManagerProductServlet"><b>QL Sản phẩm</b></a></li>
+                                    <li><a href="/ManagerOrderServlet"><b>QL đơn hàng</b></a></li>
+                                </c:if>
+                                <c:if test="${sessionScope.account != null}">
+                                    <li><a href="#"><b>Xin chào ${sessionScope.account.name}</b></a></li>
+                                    <li><a href="/LogoutServlet">Đăng xuất</a> <span class="arrow_carrot-down"></span>
                                     </li>
-                                    <c:if test="${sessionScope.account.roll}">
-                                        <li><b><a href="/ManagerProductServlet">Quản lý sản phẩm</a></b></li>
-                                    </c:if>
-                                    <c:if test="${sessionScope.account != null}">
-                                        <li><b><a href="#">Xin chào ${sessionScope.account.name}</a></b></li>
-                                        <li><a href="/LogoutServlet">Đăng xuất</a> <span class="arrow_carrot-down"></span></li>
-                                    </c:if>
-                                    <c:if test="${sessionScope.account == null}">
-                                        <li><a href="login.jsp">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
-                                    </c:if>
-                                </ul>
-                            </div>
-                            <div class="header__logo">
-                                <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right">
-                                <div class="header__top__right__links">
-                                    <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                    <%--                <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
+                                </c:if>
+                                <c:if test="${sessionScope.account == null}">
+                                    <li><a href="login.jsp">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
+                                </c:if>
+                            </ul>
+                        </div>
+                        <div class="header__logo">
+                            <a href="index"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <div class="header__top__right">
+                            <div class="header__top__right__links">
+                                <div class="shop__option__search">
+
+                                    <form action="/search">
+                                        <input name="text" type="text" placeholder="Tìm kiếm">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+
                                 </div>
-                                <div class="header__top__right__cart">
-                                    <c:if test="${sessionScope.account != null}">
-                                        <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
-                                            <div class="cart__price">Giỏ hàng</div>
-                                        </a>
-                                    </c:if>
-                                    <c:if test="${sessionScope.account == null}">
-                                        <a href="login.jsp"><img src="img/icon/cart.png" alt=""> <span>C</span>
-                                            <div class="cart__price">Giỏ hàng</div>
-                                        </a>
-                                    </c:if>
-                                </div>
+                                <%--                <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
+                            </div>
+                            <div class="header__top__right__cart">
+                                <c:if test="${sessionScope.account != null}">
+                                    <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png"
+                                                                                              alt="">
+                                        <span>${count}</span>
+                                        <div class="cart__price">Giỏ hàng</div>
+                                    </a>
+                                </c:if>
+                                <c:if test="${sessionScope.account == null}">
+                                    <a href="login.jsp"><img src="img/icon/cart.png" alt=""> <span>C</span>
+                                        <div class="cart__price">Giỏ hàng</div>
+                                    </a>
+                                </c:if>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="index">Trang chủ</a></li>
+                        <li><a href="AboutServlet">Giới thiệu</a></li>
+                        <li><a href="shop">Cửa hàng</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="ContactServlet">Liên hệ</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li class="active"><a href="./index.jsp">Trang chủ</a></li>
-                            <li><a href="./about.jsp">Giới thiệu</a></li>
-                            <li><a href="/shop">Cửa hàng</a></li>
-                            <%--                        <li><a href="#">Pages</a>--%>
-                            <%--                            <ul class="dropdown">--%>
-                            <%--                                <li><a href="./shop-details.jsp">Shop Details</a></li>--%>
-                            <%--                                <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>--%>
-                            <%--                                <li><a href="./checkout.jsp">Check Out</a></li>--%>
-                            <%--                                <li><a href="./wisslist.jsp">Wisslist</a></li>--%>
-                            <%--                                <li><a href="./Class.jsp">Class</a></li>--%>
-                            <%--                                <li><a href="./blog-details.jsp">Blog Details</a></li>--%>
-                            <%--                            </ul>--%>
-                            <%--                        </li>--%>
-                            <li><a href="./blog.jsp">Blog</a></li>
-                            <li><a href="./contact.jsp">Liên hệ</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
+    </div>
+</header>
+<!-- Header Section End -->
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -230,7 +223,7 @@
                             </a>
                             <div class="product__item__text">
                                 <h6><a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">${o.name}</a></h6>
-                                <div class="product__item__price">${o.unitPrice}</div>
+                                <div class="product__item__price">$${o.unitPrice}</div>
                                 <div class="cart_add">
                                     <c:if test="${sessionScope.account != null}">
                                         <a href="/CartServlet?action=insert&productName=${o.getName()}&productPrice=${o.getUnitPrice()}&priceTotal=${o.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${o.getThumbnail()}&productId=${o.getProductId()}">Thêm vào giỏ hàng</a>
@@ -248,70 +241,67 @@
     </section>
     <!-- Shop Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+<!-- Footer Section Begin -->
+<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__widget">
+                    <h6>GIỜ LÀM VIỆC</h6>
+                    <ul>
+                        <li>Thứ 2 - Thứ 6: 08:00 am – 08:30 pm</li>
+                        <li>Thứ 7: 10:00 am – 16:30 pm</li>
+                        <li>Chủ nhật: 10:00 am – 16:30 pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                    </div>
+                    <p>"Cake Shop" là một Thương hiệu của Jordan, khởi đầu là một doanh nghiệp gia đình nhỏ.
+                        Chủ sở hữu là Tiến sĩ Iyad Sultan và Tiến sĩ Sereen Sharabati, được hỗ trợ bởi đội ngũ 80 nhân
+                        viên.</p>
+                    <div class="footer__social">
+                        <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__newslatter">
+                    <h6>Đăng ký</h6>
+                    <p>Nhận các bản cập nhật và ưu đãi mới nhất.</p>
+                    <form action="ContactServlet?action=sendEmail" method="post"
+                          onsubmit="alert('Gửi thông tin thành công!')">
+                        <input type="email" placeholder="Địa chỉ Email" name="email"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        <button type="submit"><i class="fa fa-send-o"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>GIỜ LÀM VIỆC</h6>
-                        <ul>
-                            <li>Thứ 2 - Thứ 6: 08:00 am – 08:30 pm</li>
-                            <li>Thứ 7: 10:00 am – 16:30 pm</li>
-                            <li>Chủ nhật: 10:00 am – 16:30 pm</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore dolore magna aliqua.</p>
-                        <div class="footer__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__newslatter">
-                        <h6>Đăng ký</h6>
-                        <p>Nhận các bản cập nhật và ưu đãi mới nhất.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Email">
-                            <button type="submit"><i class="fa fa-send-o"></i></button>
-                        </form>
-                    </div>
+                <div class="col-lg-12">
+                    <p class="copyright__text text-white" style="text-align: center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        | This website is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                            href="https://oidayroi.com" target="_blank">C1220G1</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://oidayroi.com" target="_blank">HoangSyLuc</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="copyright__widget">
-                            <ul>
-                                <li><a href="#">Chính sách bảo mật</a></li>
-                                <li><a href="#">Điều khoản và điều kiện</a></li>
-                                <li><a href="#">Sơ đồ trang web</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+    </div>
+</footer>
+<!-- Footer Section End -->
 
     <!-- Search Begin -->
     <div class="search-model">

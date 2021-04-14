@@ -2,6 +2,7 @@ package com.cakemanager.controller;
 
 import com.cakemanager.model.*;
 import com.cakemanager.service.AccountService;
+import com.cakemanager.service.CartService;
 import com.cakemanager.service.OrderService;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -82,6 +83,15 @@ public class ManagerOrderServlet extends HttpServlet {
         List<Orders> listOrder = this.orderService.getAllOrder();
         RequestDispatcher dispatcher;
         request.setAttribute("listOrder", listOrder);
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         dispatcher = request.getRequestDispatcher("managerOrder.jsp");
         dispatcher.forward(request, response);
     }
