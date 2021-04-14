@@ -248,14 +248,6 @@
     </section>
     <!-- Shop Section End -->
 
-    <!-- Map Begin -->
-    <div class="map">
-        <div class="map__iframe">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14895.691654844091!2d105.7682175!3d21.0357702!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe713200541b7456d!2sCodeGym!5e0!3m2!1svi!2s!4v1617441072578!5m2!1svi!2s" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-    </div>
-    <!-- Map End -->
-
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
         <div class="container">
