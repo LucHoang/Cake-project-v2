@@ -1,6 +1,9 @@
 package com.cakemanager.controller;
 
+import com.cakemanager.model.Account;
+import com.cakemanager.model.Category;
 import com.cakemanager.model.Product;
+import com.cakemanager.service.CartService;
 import com.cakemanager.service.IndexService;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -69,6 +73,14 @@ public class IndexServlet extends HttpServlet {
         Map<Integer, String> category = new HashMap<>();
         for (int i=0; i<10; i++) {
             category.put(products.get(i).getProductId(), indexService.selectCategoryByProductId(products.get(i).getProductId()).getName());
+        }
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
         }
 
         request.setAttribute("products", products);

@@ -42,12 +42,18 @@
 <div class="offcanvas-menu-wrapper">
   <div class="offcanvas__cart">
     <div class="offcanvas__cart__links">
-      <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+      <div class="shop__option__search">
+        <form action="/search">
+          <input name="text" type="text" placeholder="Tìm kiếm">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+<%--      <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>--%>
 <%--      <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
     </div>
     <div class="offcanvas__cart__item">
       <c:if test="${sessionScope.account != null}">
-        <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
+        <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>${count}</span>
           <div class="cart__price">Giỏ hàng</div>
         </a>
       </c:if>
@@ -62,23 +68,11 @@
     </div>
   </div>
   <div class="offcanvas__logo">
-    <a href="index.jsp"><img src="img/logo.png" alt=""></a>
+    <a href="index"><img src="img/logo.png" alt=""></a>
   </div>
   <div id="mobile-menu-wrap"></div>
   <div class="offcanvas__option">
     <ul>
-      <li>USD <span class="arrow_carrot-down"></span>
-        <ul>
-          <li>VNĐ</li>
-          <li>USD</li>
-        </ul>
-      </li>
-      <li>ENG <span class="arrow_carrot-down"></span>
-        <ul>
-          <li>Vietnamese</li>
-          <li>ENG</li>
-        </ul>
-      </li>
       <li><a href="./login.jsp">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
     </ul>
   </div>
@@ -94,12 +88,6 @@
           <div class="header__top__inner">
             <div class="header__top__left">
               <ul>
-                <li>USD <span class="arrow_carrot-down"></span>
-                  <ul>
-                    <li>VNĐ</li>
-                    <li>USD</li>
-                  </ul>
-                </li>
                 <c:if test="${sessionScope.account.roll}">
                   <li><b><a href="/ManagerProductServlet">Quản lý sản phẩm</a></b></li>
                   <li><b><a href="/ManagerOrderServlet">Quản lý đơn hàng</a></b></li>
@@ -114,16 +102,22 @@
               </ul>
             </div>
             <div class="header__logo">
-              <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
+              <a href="index"><img src="img/logo.png" alt=""></a>
             </div>
             <div class="header__top__right">
               <div class="header__top__right__links">
-                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+<%--                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>--%>
+                <div class="shop__option__search">
+                <form action="/search">
+                  <input name="text" type="text" placeholder="Tìm kiếm">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                </div>
 <%--                <a href="#"><img src="img/icon/heart.png" alt=""></a>--%>
               </div>
               <div class="header__top__right__cart">
                 <c:if test="${sessionScope.account != null}">
-                  <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
+                  <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>${count}</span>
                     <div class="cart__price">Giỏ hàng</div>
                   </a>
                 </c:if>
@@ -145,18 +139,9 @@
       <div class="col-lg-12">
         <nav class="header__menu mobile-menu">
           <ul>
-            <li class="active"><a href="./index.jsp">Trang chủ</a></li>
+            <li class="active"><a href="index">Trang chủ</a></li>
             <li><a href="./about.jsp">Giới thiệu</a></li>
             <li><a href="/shop">Cửa hàng</a></li>
-<%--            <li><a href="#">Pages</a>--%>
-<%--              <ul class="dropdown">--%>
-<%--                <li><a href="./shop-details.jsp">Shop Details</a></li>--%>
-<%--                <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>--%>
-<%--                <li><a href="./checkout.jsp">Check Out</a></li>--%>
-<%--                <li><a href="./wisslist.jsp">Wisslist</a></li>--%>
-<%--                <li><a href="./Class.jsp">Class</a></li>--%>
-<%--                <li><a href="./blog-details.jsp">Blog Details</a></li>--%>
-<%--              </ul>--%>
             </li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="./contact.jsp">Liên hệ</a></li>
@@ -183,7 +168,7 @@
         </div>
       </div>
     </div>
-    <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+    <div class="hero__item set-bg" data-setbg="img/about-video.jpg">
       <div class="container">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
@@ -198,50 +183,6 @@
   </div>
 </section>
 <!-- Hero Section End -->
-
-<%--<!-- About Section Begin -->--%>
-<%--<section class="about spad">--%>
-<%--  <div class="container">--%>
-<%--    <div class="row">--%>
-<%--      <div class="col-lg-6 col-md-6">--%>
-<%--        <div class="about__text">--%>
-<%--          <div class="section-title">--%>
-<%--            <span>GIỚI THIỆU CỬA HÀNG BÁNH KẸO</span>--%>
-<%--            <h2>Cakes and bakes from the house of Queens!</h2>--%>
-<%--          </div>--%>
-<%--          <p>"Cake Shop" là một Thương hiệu của Jordan, khởi đầu là một doanh nghiệp gia đình nhỏ.--%>
-<%--            Chủ sở hữu là Tiến sĩ Iyad Sultan và Tiến sĩ Sereen Sharabati, được hỗ trợ bởi đội ngũ 80 nhân viên.</p>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--      <div class="col-lg-6 col-md-6">--%>
-<%--        <div class="about__bar">--%>
-<%--          <div class="about__bar__item">--%>
-<%--            <p>Cake design</p>--%>
-<%--            <div id="bar1" class="barfiller">--%>
-<%--              <div class="tipWrap"><span class="tip"></span></div>--%>
-<%--              <span class="fill" data-percentage="95"></span>--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--          <div class="about__bar__item">--%>
-<%--            <p>Cake Class</p>--%>
-<%--            <div id="bar2" class="barfiller">--%>
-<%--              <div class="tipWrap"><span class="tip"></span></div>--%>
-<%--              <span class="fill" data-percentage="80"></span>--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--          <div class="about__bar__item">--%>
-<%--            <p>Cake Recipes</p>--%>
-<%--            <div id="bar3" class="barfiller">--%>
-<%--              <div class="tipWrap"><span class="tip"></span></div>--%>
-<%--              <span class="fill" data-percentage="90"></span>--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-<%--</section>--%>
-<%--<!-- About Section End -->--%>
 
 <!-- Categories Section Begin -->
 <div class="categories">
@@ -288,14 +229,6 @@
           </div>
         </div>
         </a>
-<%--        <a href="/index?action=showProductCategory&id=1">--%>
-<%--        <div class="categories__item">--%>
-<%--          <div class="categories__item__icon">--%>
-<%--            <span class="flaticon-006-macarons"></span>--%>
-<%--            <h5>Cupcake</h5>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        </a>--%>
       </div>
     </div>
   </div>
@@ -338,38 +271,6 @@
 </section>
 <!-- Product Section End -->
 
-<%--<!-- Class Section Begin -->--%>
-<%--<section class="class spad">--%>
-<%--  <div class="container">--%>
-<%--    <div class="row">--%>
-<%--      <div class="col-lg-6">--%>
-<%--        <div class="class__form">--%>
-<%--          <div class="section-title">--%>
-<%--            <span>Học làm bánh</span>--%>
-<%--            <h2>Làm từ bàn tay <br />của chính mình</h2>--%>
-<%--          </div>--%>
-<%--          <form action="#">--%>
-<%--            <input type="text" placeholder="Name">--%>
-<%--            <input type="text" placeholder="Phone">--%>
-<%--            <select>--%>
-<%--              <option value="">Studying Class</option>--%>
-<%--              <option value="">Writting Class</option>--%>
-<%--              <option value="">Reading Class</option>--%>
-<%--            </select>--%>
-<%--            <input type="text" placeholder="Type your requirements">--%>
-<%--            <button type="submit" class="site-btn">đăng ký</button>--%>
-<%--          </form>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--    </div>--%>
-<%--    <div class="class__video set-bg" data-setbg="img/class-video.jpg">--%>
-<%--      <a href="https://youtu.be/T_4wLg1gVJ0"--%>
-<%--         class="play-btn video-popup"><i class="fa fa-play"></i></a>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-<%--</section>--%>
-<%--<!-- Class Section End -->--%>
-
 <!-- Team Section Begin -->
 <section class="class spad">
   <div class="container">
@@ -382,63 +283,49 @@
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5">
         <div class="team__btn">
-          <a href="#" class="primary-btn">Tham gia với chúng tôi</a>
+          <a href="https://www.facebook.com/" class="primary-btn">Tham gia với chúng tôi</a>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="team__item set-bg" data-setbg="img/team/team-1.jpg">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="team__item set-bg" data-setbg="img/team/luc.jpg">
           <div class="team__item__text">
-            <h6>Randy Butler</h6>
+            <h6>Hoàng Sỹ Lực</h6>
             <span>Decorater</span>
             <div class="team__item__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-youtube-play"></i></a>
+              <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="team__item set-bg" data-setbg="img/team/team-2.jpg">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="team__item set-bg" data-setbg="img/team/ngoc.jpg">
           <div class="team__item__text">
-            <h6>Randy Butler</h6>
+            <h6>Nguyễn Thị Bích Ngọc</h6>
             <span>Decorater</span>
             <div class="team__item__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-youtube-play"></i></a>
+              <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="team__item set-bg" data-setbg="img/team/team-3.jpg">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="team__item set-bg" data-setbg="img/team/duc.jpg">
           <div class="team__item__text">
-            <h6>Randy Butler</h6>
+            <h6>Lê Minh Đức</h6>
             <span>Decorater</span>
             <div class="team__item__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-youtube-play"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="team__item set-bg" data-setbg="img/team/team-4.jpg">
-          <div class="team__item__text">
-            <h6>Randy Butler</h6>
-            <span>Decorater</span>
-            <div class="team__item__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-youtube-play"></i></a>
+              <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
             </div>
           </div>
         </div>
@@ -447,157 +334,6 @@
   </div>
 </section>
 <!-- Team Section End -->
-
-<%--<!-- Testimonial Section Begin -->--%>
-<%--<section class="testimonial spad">--%>
-<%--  <div class="container">--%>
-<%--    <div class="row">--%>
-<%--      <div class="col-lg-12 text-center">--%>
-<%--        <div class="section-title">--%>
-<%--          <span>Testimonial</span>--%>
-<%--          <h2>Phản hồi của khách hàng</h2>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--    </div>--%>
-<%--    <div class="row">--%>
-<%--      <div class="testimonial__slider owl-carousel">--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-1.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Kerry D.Silva</h5>--%>
-<%--                <span>New york</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-2.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Kerry D.Silva</h5>--%>
-<%--                <span>New york</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-1.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Ophelia Nunez</h5>--%>
-<%--                <span>London</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-2.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Kerry D.Silva</h5>--%>
-<%--                <span>New york</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-1.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Ophelia Nunez</h5>--%>
-<%--                <span>London</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--        <div class="col-lg-6">--%>
-<%--          <div class="testimonial__item">--%>
-<%--            <div class="testimonial__author">--%>
-<%--              <div class="testimonial__author__pic">--%>
-<%--                <img src="img/testimonial/ta-2.jpg" alt="">--%>
-<%--              </div>--%>
-<%--              <div class="testimonial__author__text">--%>
-<%--                <h5>Kerry D.Silva</h5>--%>
-<%--                <span>New york</span>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--            <div class="rating">--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star"></span>--%>
-<%--              <span class="icon_star-half_alt"></span>--%>
-<%--            </div>--%>
-<%--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt--%>
-<%--              ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-<%--</section>--%>
-<%--<!-- Testimonial Section End -->--%>
 
 <!-- Instagram Section Begin -->
 <section class="instagram spad">
@@ -678,13 +414,13 @@
           <div class="footer__logo">
             <a href="#"><img src="img/footer-logo.png" alt=""></a>
           </div>
-          <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore dolore magna aliqua.</p>
+          <p>"Cake Shop" là một Thương hiệu của Jordan, khởi đầu là một doanh nghiệp gia đình nhỏ.
+            Chủ sở hữu là Tiến sĩ Iyad Sultan và Tiến sĩ Sereen Sharabati, được hỗ trợ bởi đội ngũ 80 nhân viên.</p>
           <div class="footer__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
           </div>
         </div>
       </div>
@@ -703,20 +439,11 @@
   <div class="copyright">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://oidayroi.com" target="_blank">HoangSyLuc</a>
+        <div class="col-lg-12">
+          <p class="copyright__text text-white" style="text-align: center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | This website is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://oidayroi.com" target="_blank">C1220G1</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
-        </div>
-        <div class="col-lg-6">
-          <div class="copyright__widget">
-            <ul>
-              <li><a href="#">Chính sách bảo mật</a></li>
-              <li><a href="#">Điều khoản và điều kiện</a></li>
-              <li><a href="#">Sơ đồ trang web</a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>

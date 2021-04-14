@@ -194,19 +194,19 @@
             </div>
             <div class="col-lg-4">
                 <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Enter keyword">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
+<%--                    <div class="blog__sidebar__search">--%>
+<%--                        <form action="#">--%>
+<%--                            <input type="text" placeholder="Enter keyword">--%>
+<%--                            <button type="submit"><i class="fa fa-search"></i></button>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
                     <div class="blog__sidebar__item">
                         <h5>Theo dõi CakeShop</h5>
                         <div class="blog__sidebar__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
                         </div>
                     </div>
                     <div class="blog__sidebar__item">

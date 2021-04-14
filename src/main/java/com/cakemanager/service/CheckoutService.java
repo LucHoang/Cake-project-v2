@@ -17,6 +17,7 @@ public class CheckoutService {
     private static final String INSERT_INTO_ORDERS_USER_ID_VALUES = "INSERT INTO orders (userId) VALUES (?);";
     private static final String INSERT_INTO_ORDERS_DETAIL = "INSERT INTO orderdetails VALUES (?, ?, ?, ?, ?);";
     private static final String UPDATE_PRODUCTS_SET_QUANTITY_STOCK_WHERE_PRODUCT_ID = "update products set quantityStock = ? where productId = ?;";
+    private static final String DELETE_FROM_CART_WHERE_USER_ID = "delete from cart where userId = ?;";
 
     public CheckoutService() {
 
@@ -117,5 +118,15 @@ public class CheckoutService {
                 throwables.printStackTrace();
             }
         }
+    }
+
+    public boolean deleteCartByUserId(int userId) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = DatabaseConection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_FROM_CART_WHERE_USER_ID);) {
+            statement.setInt(1, userId);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
     }
 }
