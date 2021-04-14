@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "CheckoutServlet", value = "/CheckoutServlet")
@@ -66,12 +67,16 @@ public class CheckoutServlet extends HttpServlet {
         }
         switch (action) {
                 case "insertOrder":
-                    insertOrder(request, response);
+                    try {
+                        insertOrder(request, response);
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
                     break;
         }
     }
 
-    private void insertOrder(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void insertOrder(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         int userId = Integer.parseInt(request.getParameter("userId"));
 
         Orders order = new Orders(userId);
@@ -84,7 +89,7 @@ public class CheckoutServlet extends HttpServlet {
         insertOrderDetail(request, response, orderId);
     }
 
-    private void insertOrderDetail(HttpServletRequest request, HttpServletResponse response, int orderId) throws IOException {
+    private void insertOrderDetail(HttpServletRequest request, HttpServletResponse response, int orderId) throws IOException, SQLException {
 //        this.orderId = orderId;
         System.out.println(orderId);
         int userId = Integer.parseInt(request.getParameter("userId"));
@@ -108,6 +113,8 @@ public class CheckoutServlet extends HttpServlet {
             quantityStock = product.getQuantityStock() - quantityProduct;
             checkoutService.updateQuantityStock(quantityStock, productId);
         }
+
+        checkoutService.deleteCartByUserId(userId);
 
         response.sendRedirect("index");
     }
