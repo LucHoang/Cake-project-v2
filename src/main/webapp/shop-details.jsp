@@ -167,8 +167,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
-                        <a href="./index.html">Home</a>
-                        <a href="shop.jsp">Shop</a>
+                        <a href="index">Home</a>
+                        <a href="shop">Shop</a>
                         <span>Sweet autumn leaves</span>
                     </div>
                 </div>

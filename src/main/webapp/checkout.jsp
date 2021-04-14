@@ -185,11 +185,11 @@
                         <div class="col-lg-7 col-md-6">
 <%--                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click--%>
 <%--                            here</a> to enter your code</h6>--%>
-                            <h6 class="checkout__title">Billing Details</h6>
+                            <h6 class="checkout__title">CHI TIẾT HÓA ĐƠN</h6>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Name:</p>
+                                        <p>Tên:</p>
                                         <input type="text" value="${account.getName()}" disabled>
                                     </div>
                                 </div>
@@ -205,14 +205,14 @@
 <%--                                <input type="text">--%>
 <%--                            </div>--%>
                             <div class="checkout__input">
-                                <p>Address:</p>
+                                <p>Địa chỉ:</p>
                                 <input type="text" class="checkout__input__add" value="${account.getAddress()}" disabled>
 <%--                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">--%>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Phone:</p>
+                                        <p>Số điện thoại:</p>
                                         <input type="text" value="${account.getPhone()}" disabled>
                                     </div>
                                 </div>
@@ -226,23 +226,23 @@
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <div class="checkout__order">
-                                <h6 class="order__title">Your order</h6>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
+                                <h6 class="order__title">ĐƠN HÀNG CỦA BẠN</h6>
+                                <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
                                 <ul class="checkout__total__products">
                                     <c:set var = "stt" value = "${0}"/>
                                     <c:forEach items='${requestScope["carts"]}' var="cart">
-                                    <li><samp><c:out value = "${stt = stt + 1}"/></samp>. ${cart.getProductName()} (x${cart.getQuantity()}) <span>$ ${cart.getProductPrice()*cart.getQuantity()}</span></li>
+                                    <li><samp><c:out value = "${stt = stt + 1}"/></samp>. ${cart.getProductName()} (x${cart.getQuantity()}) <span>$${cart.getProductPrice()*cart.getQuantity()}</span></li>
                                     </c:forEach>
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
                                     <c:set var = "total" value = "${0}"/>
                                     <c:forEach items='${requestScope["carts"]}' var="cart">
                                         <span hidden>${total = total + cart.getProductPrice()*cart.getQuantity()}</span>
                                     </c:forEach>
-                                    <li>Total <span>$ <c:out value = "${total}"/></span></li>
+                                    <li>Tạm tính <span>$<c:out value = "${total}"/></span></li>
+                                    <li>Tổng <span>$<c:out value = "${total}"/></span></li>
                                 </ul>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                <button type="submit" class="site-btn">ĐẶT HÀNG</button>
                             </div>
                         </div>
                     </div>

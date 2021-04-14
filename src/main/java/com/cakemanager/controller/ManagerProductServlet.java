@@ -75,6 +75,15 @@ public class ManagerProductServlet extends HttpServlet {
         List<Product> listPro = this.productService.get20Product();
         RequestDispatcher dispatcher;
         request.setAttribute("listPro", listPro);
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         dispatcher = request.getRequestDispatcher("managerProduct.jsp");
         dispatcher.forward(request, response);
 

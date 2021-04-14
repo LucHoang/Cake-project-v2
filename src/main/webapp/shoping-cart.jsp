@@ -186,9 +186,9 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -247,16 +247,16 @@
 <%--                        </form>--%>
 <%--                    </div>--%>
                     <div class="cart__total">
-                        <h6>Cart total</h6>
+                        <h6>Tổng giỏ hàng</h6>
                         <ul>
-                            <li>Subtotal <span>$ 0</span></li>
                             <c:set var = "total" value = "${0}"/>
                             <c:forEach items='${requestScope["carts"]}' var="cart">
                                 <span hidden>${total = total + cart.getProductPrice()*cart.getQuantity()}</span>
                             </c:forEach>
-                            <li>Total <span>$ <c:out value = "${total}"/></span></li>
+                            <li>Tạm tính <span>$ <c:out value = "${total}"/></span></li>
+                            <li>Tổng <span>$ <c:out value = "${total}"/></span></li>
                         </ul>
-                        <a href="/CheckoutServlet?userId=${account.getUserId()}" class="primary-btn">Proceed to checkout</a>
+                        <a href="/CheckoutServlet?userId=${account.getUserId()}" class="primary-btn">TIẾN HÀNH THANH TOÁN</a>
                     </div>
                 </div>
             </div>
