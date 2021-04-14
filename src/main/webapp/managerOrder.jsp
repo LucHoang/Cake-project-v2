@@ -237,7 +237,7 @@
                         <tr>
                             <th>Mã đơn hàng</th>
                             <th>Ngày đặt hàng</th>
-                            <th>khách hàng</th>
+                            <th colspan="2" style="text-align: center;">khách hàng</th>
                             <th>Chi tiết đơn hàng</th>
                             <th>Trạng thái</th>
                         </tr>
@@ -258,7 +258,11 @@
                             </td>
                             <td class="product__cart__item cart__close">
                                 <div class="product__cart__item__text" style="padding-top:2px">
-                                    <h6 style="display: inline;padding-right: 5px">${order.userName}</h6>
+                                    <h6 style="padding-left: 130px">${order.userName}</h6>
+                                </div>
+                            </td>
+                            <td class="product__cart__item cart__close">
+                                <div class="product__cart__item__text" style="padding-top:2px">
                                     <button  style="height: 50px;width: 50px" type="button" class="btn btn-primary fa fa-bars viewUser" data-toggle="modal" data-target="#ModalUser">
                                     </button>
                                 </div>
@@ -271,12 +275,12 @@
                             </td>
                             <c:if test = "${order.status == true}">
                                 <td class="cart__close">
-                                    <a href="/ManagerOrderServlet?action=editStatusOrder&orderId=${order.orderId}" style="height: 50px;background: blue" type="button" class="btn btn-warning" disabled=""> <h5><b style="color: white">Đang giao hàng</b></h5></a>
+                                    <a href="/ManagerOrderServlet?action=editStatusOrder&orderId=${order.orderId}" style="height: 50px;background: blue;border: none;padding: 15px 10px;" type="button" class="btn btn-warning" disabled=""> <h5><b style="color: white">Đang giao hàng</b></h5></a>
                                 </td>
                             </c:if>
                             <c:if test = "${order.status == false}">
                                 <td class="cart__close">
-                                    <a href="#" style="height: 50px;background: green;" type="button" class="btn btn-warning" disabled="" ><h5><b style="color: black">Đã giao hàng</b></h5></a>
+                                    <a href="" style="height: 50px;background: green;border: none;padding: 15px 10px;" type="button" class="btn btn-warning" disabled="" ><h5><b style="color: white;">Đã giao hàng</b></h5></a>
                                 </td>
                             </c:if>
                             <input type="hidden" name="userId" id="userIdtable" value="${order.userId}">
@@ -317,10 +321,16 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
+                    <label for="userIdd">Mã khách hàng:</label>
                     <input type="text" id="userIdd" disabled >
+                    <label for="userName">Tên khách hàng:</label>
                     <input type="text" id="userName"  disabled>
+                    <label for="phone">Số điện thoại:</label>
                     <input type="text" id="phone" disabled >
+                    <label for="email"> Email:</label>
                     <input type="text" id="email" disabled >
+                    <br>
+                    <label for="address">Địa chỉ:</label>
                     <input type="text" id="address" disabled>
                 </div>
 
@@ -337,13 +347,13 @@
             <div class="modal-content">
 
                 <!-- Modal Header -->
-                <div class="modal-header"  style="font-size:20px;" >
+                <div class="modal-header"  style="font-size:50px;" >
                     <h4 class="modal-title">Thông tin</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <div class="modal-body">
-                    <table id="tableOrderDetail" style="border: 1px solid black; border-collapse: collapse;">
+                    <table id="tableOrderDetail" style="border: 1px solid black; border-collapse: collapse;width: 100%;height: 100px;font-size: large">
                         <tr>
                             <th>Mã sản phẩm</th>
                             <th>Mã đơn</th>
