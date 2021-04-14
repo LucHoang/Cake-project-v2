@@ -147,11 +147,10 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li class="active"><a href="index">Trang chủ</a></li>
-                        <li><a href="./about.jsp">Giới thiệu</a></li>
-                        <li><a href="/shop">Cửa hàng</a></li>
-                        </li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="./contact.jsp">Liên hệ</a></li>
+                        <li><a href="AboutServlet">Giới thiệu</a></li>
+                        <li><a href="shop">Cửa hàng</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="ContactServlet">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>

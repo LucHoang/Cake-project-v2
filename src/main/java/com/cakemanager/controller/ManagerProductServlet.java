@@ -3,6 +3,7 @@ package com.cakemanager.controller;
 import com.cakemanager.model.Account;
 import com.cakemanager.model.Category;
 import com.cakemanager.model.Product;
+import com.cakemanager.service.CartService;
 import com.cakemanager.service.LoginService;
 import com.cakemanager.service.ProductService;
 
@@ -83,6 +84,15 @@ public class ManagerProductServlet extends HttpServlet {
         request.setAttribute("listCategory",listCategory);
         System.out.println(listCategory);
         request.setAttribute("actionInsertOrUpdate","actionInsert");
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("editInsertPro.jsp");
         requestDispatcher.forward(request,response);
     }
@@ -94,6 +104,15 @@ public class ManagerProductServlet extends HttpServlet {
         request.setAttribute("listCategory",listCategory);
         request.setAttribute("product",product);
         request.setAttribute("actionInsertOrUpdate","actionUpdate");
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("editInsertPro.jsp");
         requestDispatcher.forward(request,response);
     }

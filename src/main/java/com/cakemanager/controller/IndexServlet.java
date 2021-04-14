@@ -107,6 +107,15 @@ public class IndexServlet extends HttpServlet {
 
         request.setAttribute("category", category);
         request.setAttribute("products", products);
+
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null) {
+            CartService cartService = new CartService();
+            int count = cartService.countCart(account.getUserId());
+            request.setAttribute("count", count);
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }

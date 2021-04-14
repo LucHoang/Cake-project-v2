@@ -1,5 +1,6 @@
 package com.cakemanager.controller;
 
+import com.cakemanager.model.Account;
 import com.cakemanager.model.Cart;
 import com.cakemanager.model.Category;
 import com.cakemanager.model.Product;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -77,6 +79,15 @@ public class ProductDetailServlet extends HttpServlet {
             request.setAttribute("product", product);
             request.setAttribute("products", products);
             request.setAttribute("category", category);
+
+            HttpSession session = request.getSession();
+            Account account = (Account) session.getAttribute("account");
+            if (account != null) {
+                CartService cartService = new CartService();
+                int count = cartService.countCart(account.getUserId());
+                request.setAttribute("count", count);
+            }
+
             dispatcher = request.getRequestDispatcher("shop-details.jsp");
         }
         try {
