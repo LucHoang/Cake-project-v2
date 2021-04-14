@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Le Minh Duc
-  Date: 12/04/2021
-  Time: 11:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -23,9 +16,7 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
@@ -40,10 +31,10 @@
 </head>
 
 <body>
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
+<%--    <!-- Page Preloder -->--%>
+<%--    <div id="preloder">--%>
+<%--        <div class="loader"></div>--%>
+<%--    </div>--%>
 
 <!-- Offcanvas Menu Begin -->
 <div class="offcanvas-menu-overlay"></div>
@@ -55,29 +46,28 @@
         </div>
         <div class="offcanvas__cart__item">
             <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="cart__price">Cart: <span>$0.00</span></div>
+            <div class="cart__price">Giỏ hàng: <span>$0.00</span></div>
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        <a href="index.jsp"><img src="img/logo.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__option">
         <ul>
-
             <li>USD <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li>EUR</li>
+                    <li>VNĐ</li>
                     <li>USD</li>
                 </ul>
             </li>
             <li>ENG <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li>Spanish</li>
+                    <li>Vietnamese</li>
                     <li>ENG</li>
                 </ul>
             </li>
-            <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+            <li><a href="#">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
         </ul>
     </div>
 </div>
@@ -94,21 +84,21 @@
                             <ul>
                                 <li>USD <span class="arrow_carrot-down"></span>
                                     <ul>
-                                        <li>EUR</li>
+                                        <li>VNĐ</li>
                                         <li>USD</li>
                                     </ul>
                                 </li>
                                 <li>ENG <span class="arrow_carrot-down"></span>
                                     <ul>
-                                        <li>Spanish</li>
+                                        <li>Vietnamese</li>
                                         <li>ENG</li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+                                <li><a href="#">Đăng nhập</a> <span class="arrow_carrot-down"></span></li>
                             </ul>
                         </div>
                         <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="/index?action=showProductCategory&id=1"><img src="img/logo.png" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
@@ -117,7 +107,7 @@
                             </div>
                             <div class="header__top__right__cart">
                                 <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                                <div class="cart__price">Giỏ hàng: <span>$0.00</span></div>
                             </div>
                         </div>
                     </div>
@@ -131,21 +121,21 @@
             <div class="col-lg-12">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li class="active"><a href="shop.jsp">Shop</a></li>
+                        <li class="active" name=><a href="/index?action=showProductCategory&id=1">Trang chủ</a></li>
+                        <li><a href="./about.jsp">Giới thiệu</a></li>
+                        <li><a href="./shop.jsp">Cửa hàng</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./wisslist.html">Wisslist</a></li>
-                                <li><a href="./Class.html">Class</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li><a href="./shop-details.jsp">Shop Details</a></li>
+                                <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
+                                <li><a href="./checkout.jsp">Check Out</a></li>
+                                <li><a href="./wisslist.jsp">Wisslist</a></li>
+                                <li><a href="./class.jsp">Class</a></li>
+                                <li><a href="./blog-details.jsp">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="./blog.jsp">Blog</a></li>
+                        <li><a href="./contact.jsp">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -160,92 +150,51 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__text">
-                    <h2>Quản lý sản phẩm</h2>
-                    <a class="primary-btn" href="/ManagerProductServlet?action=viewInsert" style="margin-top: 10px">Thêm mới</a>
+                    <h2>Bài viết</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__links">
+                    <a href="/index">Trang chủ</a>
+                    <span><a href="/blog">Bài viết</a></span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Breadcrumb End -->
-<section class="shopping-cart spad">
+
+<!-- Blog Section Begin -->
+<section class="blog spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-11">
-                <div class="shopping__cart__table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên</th>
-                            <th>Đơn giá</th>
-                            <th>Số lượng</th>
-                            <th>Ảnh</th>
-                            <th colspan="2">Hành động</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <form action="/ManagerProductServlet" method="get">
-                            <c:forEach items='${requestScope["listPro"]}' var="product">
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__text">
-                                            <h6>${product.productId}</h6>
-                                        </div>
-                                    </td>
+            <div class="col-lg-12">
 
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__text">
-                                            <h6>${product.name}</h6>
-                                        </div>
-                                    </td>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__text">
-                                            <h6>${product.unitPrice}</h6>
-                                        </div>
-                                    </td>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__text">
-                                            <h6>${product.quantityStock}</h6>
-                                        </div>
-                                    </td>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="${product.thumbnail}" alt="">
-                                        </div>
-                                    </td>
-                                    <td class="cart__close">
-                                        <a onclick="return confirm('Bạn chắc muốn sửa sản phẩm này chứ?')" href="/ManagerProductServlet?action=viewUpdate&productId=${product.productId}" ><span class="glyphicon glyphicon-pencil"></span></a>
-                                    </td>
-                                    <%! boolean checkDelete = true; %>
-                                    <td class="cart__close">
-                                        <a onclick="return confirm('Bạn chắc muốn xoá sản phẩm này chứ?')" href="/ManagerProductServlet?action=delete&productId=${product.productId}" ><span class="glyphicon glyphicon-trash"></span></a>
-                                    </td>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn">
-                            <a href="#">Continue Shopping</a>
+                <c:forEach items='${requestScope.blogsByCId}' var="blog">
+                    <div class="blog__item">
+                        <div class="blog__item__pic set-bg" data-setbg="${blog.img}">
+                            <div class="blog__pic__inner">
+<%--                                    ${blogCategory.getBlogName()}--%>
+                                <ul>
+                                    <li>Bài viết của: <span>CakeShop</span></li>
+                                    <li>${blog.datePost}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="blog__item__text">
+                            <a href="/blogDetail?action=view&id=${blog.blogId}&blogCateId=${blog.blogCateId}" >
+                                <h4>${blog.tittle}</h4></a>
+                            <p>${blog.descriptionShort}</p>
+                                <%--                            <a href="#">READ MORE</a>--%>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
-
         </div>
     </div>
 </section>
-<!-- Shopping Cart Section End -->
+<!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
@@ -253,11 +202,11 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__widget">
-                    <h6>WORKING HOURS</h6>
+                    <h6>GIỜ LÀM VIỆC</h6>
                     <ul>
-                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-                        <li>Saturday: 10:00 am – 16:30 pm</li>
-                        <li>Sunday: 10:00 am – 16:30 pm</li>
+                        <li>Thứ 2 - Thứ 6: 08:00 am – 08:30 pm</li>
+                        <li>Thứ 7: 10:00 am – 16:30 pm</li>
+                        <li>Chủ nhật: 10:00 am – 16:30 pm</li>
                     </ul>
                 </div>
             </div>
@@ -278,8 +227,8 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
+                    <h6>Đăng ký</h6>
+                    <p>Nhận các bản cập nhật và ưu đãi mới nhất.</p>
                     <form action="#">
                         <input type="text" placeholder="Email">
                         <button type="submit"><i class="fa fa-send-o"></i></button>
@@ -291,18 +240,21 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <div class="col-lg-6">
+                    <p class="copyright__text text-white">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                            href="https://oidayroi.com" target="_blank">HoangSyLuc</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="copyright__widget">
                         <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Site Map</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản và điều kiện</a></li>
+                            <li><a href="#">Sơ đồ trang web</a></li>
                         </ul>
                     </div>
                 </div>
@@ -322,11 +274,7 @@
     </div>
 </div>
 <!-- Search End -->
-<script>
-    function confirm_delete() {
-        return confirm('Bạn chắc muốn xoá sản phẩm này?');
-    }
-</script>
+
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -16,6 +16,7 @@ public class CheckoutService {
     private static final String SELECT_FROM_ORDER_WHERE_USER_ID = "select * from orders where userId =?";
     private static final String INSERT_INTO_ORDERS_USER_ID_VALUES = "INSERT INTO orders (userId) VALUES (?);";
     private static final String INSERT_INTO_ORDERS_DETAIL = "INSERT INTO orderdetails VALUES (?, ?, ?, ?, ?);";
+    private static final String UPDATE_PRODUCTS_SET_QUANTITY_STOCK_WHERE_PRODUCT_ID = "update products set quantityStock = ? where productId = ?;";
 
     public CheckoutService() {
 
@@ -101,5 +102,20 @@ public class CheckoutService {
         }
         System.out.println(orders);
         return orders;
+    }
+
+    public void updateQuantityStock(int quantityStock, int productId) {
+        Connection connection = DatabaseConection.getConnection();
+        if (connection != null) {
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PRODUCTS_SET_QUANTITY_STOCK_WHERE_PRODUCT_ID);
+                preparedStatement.setInt(1, quantityStock);
+                preparedStatement.setInt(2, productId);
+                System.out.println(preparedStatement);
+                preparedStatement.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 }

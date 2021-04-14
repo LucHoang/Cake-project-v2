@@ -40,7 +40,7 @@ public class IndexService implements IIndexService {
         try (Connection connection = DatabaseConection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID);) {
             preparedStatement.setInt(1, id);
-            System.out.println(preparedStatement);
+//            System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {

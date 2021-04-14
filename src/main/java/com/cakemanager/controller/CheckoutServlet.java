@@ -3,7 +3,9 @@ package com.cakemanager.controller;
 import com.cakemanager.model.Cart;
 import com.cakemanager.model.OrderDetails;
 import com.cakemanager.model.Orders;
+import com.cakemanager.model.Product;
 import com.cakemanager.service.CheckoutService;
+import com.cakemanager.service.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -88,6 +90,10 @@ public class CheckoutServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userId"));
 
         List<Cart> carts = checkoutService.selectCart(userId);
+        ProductService productService = new ProductService();
+        Product product;
+        int quantityStock;
+
         for (int i=0; i<carts.size(); i++) {
             String productName = carts.get(i).getProductName();
             int productId = carts.get(i).getProductId();
@@ -97,10 +103,12 @@ public class CheckoutServlet extends HttpServlet {
 
             OrderDetails orderDetails = new OrderDetails(productId, productName, orderId, salePrice, quantityProduct);
             checkoutService.insertOrderDetail(orderDetails);
+
+            product = productService.selectProductById(productId);
+            quantityStock = product.getQuantityStock() - quantityProduct;
+            checkoutService.updateQuantityStock(quantityStock, productId);
         }
-//        request.setAttribute("carts", carts);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("checkout.jsp");
-//        dispatcher.forward(request, response);
+
         response.sendRedirect("index");
     }
 }

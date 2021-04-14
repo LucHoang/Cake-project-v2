@@ -28,7 +28,8 @@ public class CartService implements ICartService{
     public void insertCart(Cart cart) throws SQLException {
         System.out.println(INSERT_CART_SQL);
         // try-with-resource statement will auto close the connection.
-        try (Connection connection = DatabaseConection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CART_SQL)) {
+        try (Connection connection = DatabaseConection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CART_SQL)) {
             preparedStatement.setString(1, cart.getProductName());
             preparedStatement.setFloat(2, cart.getProductPrice());
             preparedStatement.setFloat(3, cart.getPriceTotal());

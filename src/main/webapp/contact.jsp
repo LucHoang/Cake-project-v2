@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -147,22 +148,22 @@
     <section class="contact spad">
         <div class="container">
             <div class="map">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-4 col-md-7">
-                            <div class="map__inner">
-                                <h6>COlorado</h6>
-                                <ul>
-                                    <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>
-                                    <li>Sweetcake@support.com</li>
-                                    <li>+1 800-786-1000</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<%--                <div class="container">--%>
+<%--                    <div class="row d-flex justify-content-center">--%>
+<%--                        <div class="col-lg-4 col-md-7">--%>
+<%--                            <div class="map__inner">--%>
+<%--                                <h6>COlorado</h6>--%>
+<%--                                <ul>--%>
+<%--                                    <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>--%>
+<%--                                    <li>Sweetcake@support.com</li>--%>
+<%--                                    <li>+1 800-786-1000</li>--%>
+<%--                                </ul>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <div class="map__iframe">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10784.188505644011!2d19.053119335158936!3d47.48899529453826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1543907528304" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14895.691654844091!2d105.7682175!3d21.0357702!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe713200541b7456d!2sCodeGym!5e0!3m2!1svi!2s!4v1617441072578!5m2!1svi!2s" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
             <div class="contact__address">
@@ -223,28 +224,29 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="contact__text">
-                        <h3>Contact With us</h3>
+                        <h3>Liên hệ với chúng tôi</h3>
                         <ul>
-                            <li>Representatives or Advisors are available:</li>
-                            <li>Mon-Fri: 5:00am to 9:00pm</li>
-                            <li>Sat-Sun: 6:00am to 9:00pm</li>
+                            <li>Thứ 2 - Thứ 6: 08:00 am – 08:30 pm</li>
+                            <li>Thứ 7: 10:00 am – 16:30 pm</li>
+                            <li>Chủ nhật: 10:00 am – 16:30 pm</li>
                         </ul>
                         <img src="img/cake-piece.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="ContactServlet?action=sendContact" method="post" onsubmit="alert('Gửi tin nhắn thành công!')">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email">
+<%--                                    <input type="text" placeholder="Email" name="email" required>--%>
+                                    <input name="email" class="form-control" placeholder="Địa chỉ Email" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
-                                    <button type="submit" class="site-btn">Send Us</button>
+                                    <textarea placeholder="Message" name="message"></textarea>
+                                    <button type="submit" class="site-btn">GỬI ĐI</button>
                                 </div>
                             </div>
                         </form>

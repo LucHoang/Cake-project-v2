@@ -72,4 +72,33 @@ public class Blog {
     public void setDatePost(Date datePost) {
         this.datePost = datePost;
     }
+
+    public int getBlogCateId() {
+        return blogCateId;
+    }
+
+    public void setBlogCateId(int blogCateId) {
+        this.blogCateId = blogCateId;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "blogId=" + blogId +
+                ", tittle='" + tittle + '\'' +
+                ", descriptionShort='" + descriptionShort + '\'' +
+                ", content='" + content + '\'' +
+                ", datePost=" + datePost +
+                ", blogCateId=" + blogCateId +
+                ", img='" + img + '\'' +
+                '}';
+    }
 }
