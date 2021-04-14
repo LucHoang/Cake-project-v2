@@ -46,7 +46,7 @@
     </div>
     <div class="offcanvas__cart__item">
       <c:if test="${sessionScope.account != null}">
-        <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
+        <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>${count}</span>
           <div class="cart__price">Giỏ hàng</div>
         </a>
       </c:if>
@@ -121,7 +121,7 @@
               </div>
               <div class="header__top__right__cart">
                 <c:if test="${sessionScope.account != null}">
-                  <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>C</span>
+                  <a href="/CartServlet?userId=${account.getUserId()}"><img src="img/icon/cart.png" alt=""> <span>${count}</span>
                     <div class="cart__price">Giỏ hàng</div>
                   </a>
                 </c:if>

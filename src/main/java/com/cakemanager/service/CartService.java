@@ -19,6 +19,7 @@ public class CartService implements ICartService{
     private static final String SELECT_CATEGORY_NAME = "select category.name from category join products on category.categoryId = products.categoryId where productId = ?";
     private static final String DELETE_FROM_CART_WHERE_CART_ID = "delete from cart where cartId = ?;";
     private static final String UPDATE_CART_SET_QUANTITY_WHERE_ID = "update cart set quantity = ? where cartId = ?;";
+    private static final String COUNT_CART_WHERE_USER_ID = "select count(cartId) as count from cart where userId = ?;";
 
     public CartService() {
 
@@ -108,5 +109,21 @@ public class CartService implements ICartService{
     @Override
     public Product getProductById(int id) {
         return null;
+    }
+
+    public int countCart(int userId) {
+        int count = 0;
+        try (Connection connection = DatabaseConection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_CART_WHERE_USER_ID);) {
+            preparedStatement.setInt(1, userId);
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return count;
     }
 }

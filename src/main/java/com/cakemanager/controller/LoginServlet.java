@@ -1,6 +1,7 @@
 package com.cakemanager.controller;
 
 import com.cakemanager.model.Account;
+import com.cakemanager.service.CartService;
 import com.cakemanager.service.LoginService;
 
 import javax.servlet.RequestDispatcher;
@@ -37,7 +38,6 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account",account);
             response.sendRedirect("/index");
-
         }
 
     }
