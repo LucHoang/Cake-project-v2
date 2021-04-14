@@ -2,6 +2,7 @@ package com.cakemanager.controller;
 
 import com.cakemanager.model.Category;
 import com.cakemanager.model.Product;
+import com.cakemanager.service.IndexService;
 import com.cakemanager.service.ProductService;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "SortLowToHighServlet", value = "/sortL2H")
 public class SortLowToHighServlet extends HttpServlet {
@@ -19,6 +22,13 @@ public class SortLowToHighServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> list = productService.sortProductsByPriceFromLtoH();
         List<Category> listCategory = productService.selectAllCategory();
+
+        IndexService indexService = new IndexService();
+        Map<Integer, String> category = new HashMap<>();
+        for (Product product: list) {
+            category.put(product.getProductId(), indexService.selectCategoryByProductId(product.getProductId()).getName());
+        }
+        request.setAttribute("category", category);
 
         request.setAttribute("listP", list);
         request.setAttribute("listC", listCategory);

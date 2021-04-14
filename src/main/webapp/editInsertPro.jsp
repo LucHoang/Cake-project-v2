@@ -127,7 +127,7 @@
                     <ul>
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./about.html">About</a></li>
-                        <li class="active"><a href="./shop.html">Shop</a></li>
+                        <li class="active"><a href="shop.jsp">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./shop-details.html">Shop Details</a></li>
@@ -214,7 +214,7 @@
                                     <select name="category">
                                         <%if(product.getCategory().getName()!=null){
                                             %>
-                                                <option value="<%=product.getCategory()%>" name="" selected><%=product.getCategory().getName()%></option>
+                                                <option value="<%=product.getCategoryId()%>" name="" selected><%=product.getCategory().getName()%></option>
                                             <%;
                                         }
                                         %>

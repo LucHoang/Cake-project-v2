@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
         }else {
             HttpSession session = request.getSession();
             session.setAttribute("account",account);
-//            session.setMaxInactiveInterval(10);
             response.sendRedirect("/index");
+
         }
 
     }
