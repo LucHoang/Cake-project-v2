@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-
+@WebServlet(name = "ProductServlet", value = "/ProductServlet")
 public class ProductDetailServlet extends HttpServlet {
     private ProductService productService;
 
