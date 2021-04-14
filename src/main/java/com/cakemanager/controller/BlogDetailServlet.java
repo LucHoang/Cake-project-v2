@@ -2,10 +2,7 @@ package com.cakemanager.controller;
 
 import com.cakemanager.model.Blog;
 import com.cakemanager.model.BlogCategory;
-import com.cakemanager.model.Category;
-import com.cakemanager.model.Product;
 import com.cakemanager.service.BlogService;
-import com.cakemanager.service.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,17 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "BlogDetailServlet", value = "/blogDetail")
 public class BlogDetailServlet extends HttpServlet {
-    private BlogService blogService;
+    BlogService blogService = new BlogService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        response.setContentType("text/html;charset=UTF-8");
-//        request.setCharacterEncoding("utf-8");
 
         String action = request.getParameter("action");
         if (action == null) {
@@ -34,9 +30,9 @@ public class BlogDetailServlet extends HttpServlet {
 //                case "edit":
 ////                showEditForm(request, response);
 //                    break;
-//                case "delete":
-//                    deleteCart(request, response);
-//                    break;
+            case "showBlogsByCId":
+                showBlogsByCId(request, response);
+                break;
             case "view":
                 viewBlog(request, response);
                 break;
@@ -58,6 +54,7 @@ public class BlogDetailServlet extends HttpServlet {
 
     private void viewBlog(HttpServletRequest request, HttpServletResponse response) {
         int blogId = Integer.parseInt(request.getParameter("id"));
+        System.out.println(blogId);
         Blog blog = blogService.selectBlogById(blogId);
 
 
@@ -81,5 +78,22 @@ public class BlogDetailServlet extends HttpServlet {
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showBlogsByCId(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        int blogCId = Integer.parseInt(request.getParameter("blogCId"));
+
+        List<Blog> blogsByCId = blogService.selectBlogsByCId(blogCId);
+
+        Map<Integer, String> blogC = new HashMap<>();
+        for (int i=0; i<3; i++) {
+            blogC.put(blogsByCId.get(i).getBlogCateId(), blogService.selectBCateByBId(blogsByCId.get(i).getBlogId()).getBlogName());
+        }
+
+        request.setAttribute("blogC", blogC);
+        request.setAttribute("blogsByCId", blogsByCId);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("blog2.jsp");
+        dispatcher.forward(request, response);
     }
 }

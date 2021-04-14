@@ -168,13 +168,13 @@
 <section class="blog spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
 
-                <c:forEach items='${requestScope["latestBlogTop4ById"]}' var="blog">
+                <c:forEach items='${requestScope.blogC}' var="blog">
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="${blog.getImg()}">
                             <div class="blog__pic__inner">
-                                    ${blogCategory.getBlogName()}
+<%--                                    ${blogCategory.getBlogName()}--%>
                                 <ul>
                                     <li>Bài viết của: <span>CakeShop</span></li>
                                     <li>${blog.datePost}</li>
@@ -190,56 +190,6 @@
                         </div>
                     </div>
                 </c:forEach>
-
-            </div>
-            <div class="col-lg-4">
-                <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Enter keyword">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h5>Theo dõi CakeShop</h5>
-                        <div class="blog__sidebar__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h5>Bài viết được yêu thích</h5>
-
-                        <c:forEach items="${requestScope.blogs}" var="b">
-                            <div class="blog__sidebar__recent">
-                                <a href="#" class="blog__sidebar__recent__item">
-                                    <div class="blog__sidebar__recent__item__pic">
-                                        <img src="${b.img}" width="60px" height="60px" alt="">
-                                    </div>
-                                    <div class="blog__sidebar__recent__item__text">
-                                        <h4>
-                                            <a style="color: black" href="/blogDetail?action=view&id=${b.getBlogId()}&blogCateId=${b.getBlogCateId()}">${b.tittle}</a>
-                                        </h4>
-                                        <span>${b.datePost}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </c:forEach>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h5>Chủ đề bài viết</h5>
-                            <div class="blog__sidebar__item__categories">
-                                <ul>
-                                    <li><a href="/blogDetail?action=showBlogsByCId&blogCId=1">Công thức</a></li>
-                                    <li><a href="/blogDetail?action=showBlogsByCId&blogCId=2">Tin tức</a></li>
-                                    <li><a href="/blogDetail?action=showBlogsByCId&blogCId=3">Video</a></li>
-                                    <li><a href="/blogDetail?action=showBlogsByCId&blogCId=4">Xu hướng</a></li>
-                                </ul>
-                            </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

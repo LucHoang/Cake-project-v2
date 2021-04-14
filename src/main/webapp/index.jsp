@@ -307,6 +307,7 @@
 <c:forEach items='${requestScope["products"]}' var="product" begin="1" end="8">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="product__item">
+
           <a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">
           <div class="product__item__pic set-bg" data-setbg="${product.getThumbnail()}">
             <div class="product__label">
@@ -314,6 +315,7 @@
             </div>
           </div>
           </a>
+
           <div class="product__item__text">
             <h6><a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">${product.getName()}</a></h6>
             <div class="product__item__price">${product.getUnitPrice()} $</div>

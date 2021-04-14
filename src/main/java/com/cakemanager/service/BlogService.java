@@ -154,7 +154,7 @@ public class BlogService {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                String blogCateName = rs.getString("name");
+                String blogCateName = rs.getString("blogCateName");
                 blogCategory= new BlogCategory(blogCateName);
             }
         } catch (SQLException e) {
