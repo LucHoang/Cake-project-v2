@@ -27,25 +27,12 @@ public class BlogDetailServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-//                case "edit":
-////                showEditForm(request, response);
-//                    break;
             case "showBlogsByCId":
                 showBlogsByCId(request, response);
                 break;
             case "view":
                 viewBlog(request, response);
                 break;
-//            case "insert":
-//                try {
-//                    insertCart(request, response);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//                break;
-//                case "update":
-//                    updateCart(request, response);
-//                    break;
             default:
                 viewBlog(request, response);
                 break;
@@ -57,12 +44,10 @@ public class BlogDetailServlet extends HttpServlet {
         System.out.println(blogId);
         Blog blog = blogService.selectBlogById(blogId);
 
-
         int blogCateId = Integer.parseInt(request.getParameter("blogCateId"));
         List<Blog> blogList = blogService.selectBlogsByCId(blogCateId);
 
         BlogCategory bCate = blogService.selectBCateByBId(blogId);
-
         RequestDispatcher dispatcher;
 
         if (blog == null) {
@@ -87,10 +72,9 @@ public class BlogDetailServlet extends HttpServlet {
         List<Blog> blogsByCId = blogService.selectBlogsByCId(blogCId);
 
         Map<Integer, String> blogC = new HashMap<>();
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<2; i++) {
             blogC.put(blogsByCId.get(i).getBlogCateId(), blogService.selectBCateByBId(blogsByCId.get(i).getBlogId()).getBlogName());
         }
-
         request.setAttribute("blogC", blogC);
         request.setAttribute("blogsByCId", blogsByCId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("blog2.jsp");

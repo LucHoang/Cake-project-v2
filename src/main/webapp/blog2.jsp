@@ -170,9 +170,9 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <c:forEach items='${requestScope.blogC}' var="blog">
+                <c:forEach items='${requestScope.blogsByCId}' var="blog">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="${blog.getImg()}">
+                        <div class="blog__item__pic set-bg" data-setbg="${blog.img}">
                             <div class="blog__pic__inner">
 <%--                                    ${blogCategory.getBlogName()}--%>
                                 <ul>
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="blog__item__text">
-                            <a href="/blogDetail?action=view&id=${blog.getBlogId()}&blogCateId=${blog.getBlogCateId()}" >
+                            <a href="/blogDetail?action=view&id=${blog.blogId}&blogCateId=${blog.blogCateId}" >
                                 <h4>${blog.tittle}</h4></a>
                             <p>${blog.descriptionShort}</p>
                                 <%--                            <a href="#">READ MORE</a>--%>
