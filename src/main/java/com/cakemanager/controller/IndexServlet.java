@@ -1,6 +1,5 @@
 package com.cakemanager.controller;
 
-import com.cakemanager.model.Category;
 import com.cakemanager.model.Product;
 import com.cakemanager.service.IndexService;
 
@@ -16,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "IndexServlet", value = "/index")
 public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private IndexService indexService;

@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "SearchServlet", value = "/search")
 public class SearchServlet extends HttpServlet {
     ProductService productService = new ProductService();
 

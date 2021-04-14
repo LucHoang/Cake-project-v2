@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ManagerProductServlet", value = "/ManagerProductServlet")
 public class ManagerProductServlet extends HttpServlet {
     private ProductService productService;
     private LoginService loginService;
@@ -37,16 +36,16 @@ public class ManagerProductServlet extends HttpServlet {
         }catch (Exception e){
             account = null;
         }
-        RequestDispatcher requestDispatcher =  null;
-        if(account== null){
-            response.sendRedirect("/index");
-            return;
-        }else{
-            if(!account.isRoll()){
-                response.sendRedirect("/index");
-                return;
-            }
-        }
+//        RequestDispatcher requestDispatcher =  null;
+//        if(account== null){
+//            response.sendRedirect("/index");
+//            return;
+//        }else{
+//            if(!account.isRoll()){
+//                response.sendRedirect("/index");
+//                return;
+//            }
+//        }
         String action = request.getParameter("action");
         if(action == null){
             action = "";

@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "SortHighToLowServlet", value = "/sortH2L")
 public class SortHighToLowServlet extends HttpServlet {
     ProductService productService = new ProductService();
 

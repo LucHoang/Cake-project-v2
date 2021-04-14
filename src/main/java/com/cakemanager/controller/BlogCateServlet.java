@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "BlogCateServlet", value = "/BlogCate")
 public class BlogCateServlet extends HttpServlet {
     BlogService blogService = new BlogService();
 

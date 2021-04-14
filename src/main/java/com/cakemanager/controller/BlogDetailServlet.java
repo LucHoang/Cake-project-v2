@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "BlogDetailServlet", value = "/blogDetail")
 public class BlogDetailServlet extends HttpServlet {
     BlogService blogService = new BlogService();
 

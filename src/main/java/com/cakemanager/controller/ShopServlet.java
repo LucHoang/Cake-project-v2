@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "ShopServlet", value = "/shop")
 public class ShopServlet extends HttpServlet {
     ProductService productService = new ProductService();
     @Override

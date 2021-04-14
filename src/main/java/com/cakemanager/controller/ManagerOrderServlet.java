@@ -2,9 +2,7 @@ package com.cakemanager.controller;
 
 import com.cakemanager.model.*;
 import com.cakemanager.service.AccountService;
-import com.cakemanager.service.LoginService;
 import com.cakemanager.service.OrderService;
-import com.cakemanager.service.ProductService;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -21,7 +19,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "ManagerOrderServlet", value = "/ManagerOrderServlet")
 public class ManagerOrderServlet extends HttpServlet {
     private OrderService orderService;
     private AccountService accountService;
@@ -41,16 +38,16 @@ public class ManagerOrderServlet extends HttpServlet {
         }catch (Exception e){
             account = null;
         }
-        RequestDispatcher requestDispatcher =  null;
-        if(account== null){
-            response.sendRedirect("/index");
-            return;
-        }else{
-            if(!account.isRoll()){
-                response.sendRedirect("/index");
-                return;
-            }
-        }
+//        RequestDispatcher requestDispatcher =  null;
+//        if(account== null){
+//            response.sendRedirect("/index");
+//            return;
+//        }else{
+//            if(!account.isRoll()){
+//                response.sendRedirect("/index");
+//                return;
+//            }
+//        }
         String action = request.getParameter("action");
         if(action == null){
             action = "";

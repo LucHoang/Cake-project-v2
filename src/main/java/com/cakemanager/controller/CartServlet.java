@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "CartServlet", value = "/CartServlet")
 public class CartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static CartService cartService = new CartService();

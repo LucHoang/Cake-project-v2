@@ -2,14 +2,12 @@ package com.cakemanager.controller;
 
 import com.cakemanager.model.Contact;
 import com.cakemanager.service.ContactService;
-import com.cakemanager.service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ContactServlet", value = "/ContactServlet")
 public class ContactServlet extends HttpServlet {
     private ContactService contactService;
     public void init() {
