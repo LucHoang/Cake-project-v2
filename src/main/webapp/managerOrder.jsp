@@ -219,7 +219,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__text">
-                    <h2>Quản lý đơn hàng 28:49 29:29</h2>
+                    <h2>Quản lý đơn hàng</h2>
                 </div>
             </div>
         </div>
