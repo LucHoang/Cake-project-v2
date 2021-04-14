@@ -31,9 +31,21 @@ public class ManagerProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
-        Account account = (Account)session.getAttribute("account");
-        if(!account.isRoll()){
+        Account account = null;
+        try {
+            account = (Account)session.getAttribute("account");
+        }catch (Exception e){
+            account = null;
+        }
+        RequestDispatcher requestDispatcher =  null;
+        if(account== null){
             response.sendRedirect("/index");
+            return;
+        }else{
+            if(!account.isRoll()){
+                response.sendRedirect("/index");
+                return;
+            }
         }
         String action = request.getParameter("action");
         if(action == null){

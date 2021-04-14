@@ -7,7 +7,7 @@ public class Orders {
     private Date orderDate;
     private int userId;
     private boolean status;
-
+    private String userName;
     public Orders() {
 
     }
@@ -17,6 +17,22 @@ public class Orders {
         this.orderDate = orderDate;
         this.userId = userId;
         this.status = status;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Orders(int orderId, Date orderDate, int userId, boolean status, String userName) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.userId = userId;
+        this.status = status;
+        this.userName = userName;
     }
 
     public Orders(int userId) {

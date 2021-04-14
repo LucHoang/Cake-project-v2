@@ -101,6 +101,7 @@
                 </li>
                 <c:if test="${sessionScope.account.roll}">
                   <li><b><a href="/ManagerProductServlet">Quản lý sản phẩm</a></b></li>
+                  <li><b><a href="/ManagerOrderServlet">Quản lý đơn hàng</a></b></li>
                 </c:if>
                 <c:if test="${sessionScope.account != null}">
                   <li><b><a href="#">Xin chào ${sessionScope.account.name}</a></b></li>

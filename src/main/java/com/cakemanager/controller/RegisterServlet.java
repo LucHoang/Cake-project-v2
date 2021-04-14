@@ -35,11 +35,16 @@ public class RegisterServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String password = request.getParameter("password");
-        this.registerService.registerAcount(userName,phone,email,address,password);
-        Account account = this.loginService.checkLogin(email,password);
-        HttpSession session = request.getSession();
-        session.setAttribute("account",account);
-        response.sendRedirect("/index");
+        if(this.registerService.registerAcount(userName,phone,email,address,password)){
+            Account account = this.loginService.checkLogin(email,password);
+            HttpSession session = request.getSession();
+            session.setAttribute("account",account);
+            response.sendRedirect("/index");
+        }else{
+            response.sendRedirect("registerAcount.jsp");
+        }
+
+
     }
 
 }

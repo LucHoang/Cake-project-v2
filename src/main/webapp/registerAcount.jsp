@@ -135,8 +135,6 @@
                 if (!form.checkValidity()) {
                     event.preventDefault() // được sử dụng để ngăn chặn xử lý mặc định của trình duyệt khi xảy ra sự kiện.
                     event.stopPropagation() //được sử dụng để ngăn không cho sự kiện lan toả lên các phần tử cha của phần tử diễn ra sự kiện.
-                }else {
-                    alert("Đăng kí thành công!");
                 }
                 form.classList.add('was-validated')
             }, false)
