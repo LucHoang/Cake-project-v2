@@ -232,7 +232,7 @@
 <%--                            <a href="#" class="primary-btn">Add to cart</a>--%>
 <%--                            <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>--%>
 <%--                                <button class="primary-btn" type="submit">Add to cart</button>--%>
-                                <input class="primary-btn" style="border: none" type="submit" value="Add to cart"/>
+                                <input class="primary-btn" style="border: none" type="submit" value="Thêm vào giỏ hàng"/>
                             </form>
                             </c:if>
                             <c:if test="${sessionScope.account == null}">
