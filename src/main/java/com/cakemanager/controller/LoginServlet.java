@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
         String passWord = request.getParameter("passWord");
         Account account = this.loginService.checkLogin(email,passWord);
         if(account == null){
+            request.setAttribute("message","loginFail");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
             requestDispatcher.forward(request,response);
         }else {

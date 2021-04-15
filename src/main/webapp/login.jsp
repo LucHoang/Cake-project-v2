@@ -43,6 +43,22 @@
     </style>
 </head>
 <body>
+<%
+    String message = "";
+    try {
+        message = request.getAttribute("message").toString();
+        if(message.equals("loginFail")){
+            ;%>
+                <script type="text/javascript">
+                    alert("Sai toàn khoản hoặc mật khẩu!");
+                </script>
+            <%;
+        }
+    }catch (Exception e){
+        message = null;
+    };
+
+%>
 <div class="login-form">
     <form action="/LoginServlet" method="post">
         <h2 class="text-center">Đăng nhập</h2>
