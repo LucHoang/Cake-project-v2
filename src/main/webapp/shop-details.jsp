@@ -308,7 +308,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
-                        <h2>Related Products</h2>
+                        <h2>Sản phẩm tương tự</h2>
                     </div>
                 </div>
             </div>

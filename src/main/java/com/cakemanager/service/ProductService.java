@@ -15,7 +15,8 @@ public class ProductService {
             " (?, ?, ?, ?, ?, ?, ?);";
     private static final String SELECT__WHERE_CATEGORY_ID = "select * from products where categoryId =?";
     private static final String SELECT_CATEGORY_NAME_WHERE_PRODUCT_ID = "select category.name from category, products where category.categoryId = products.categoryId and products.productId =?";
-    private static final String SELECT_20_PRODUCT = "select * from products inner join category c on products.categoryId = c.categoryId limit 20;";
+//    private static final String SELECT_20_PRODUCT = "select * from products inner join category c on products.categoryId = c.categoryId limit 20;";
+    private static final String SELECT_20_PRODUCT = "select * from products inner join category c on products.categoryId = c.categoryId;";
     private static final String DELETE_FROM_ORDERDETAIL_WITH_PROID = "delete from orderdetails where productId = ?;";
     private static final String DELETE_FROM_PRODUCT_WITH_PROID = "delete from products where productId = ?;";
     private static final String INSERT_PRODUCT = "insert into products(name, unitPrice, quantityStock, productDescription, thumbnail, categoryId)" +
