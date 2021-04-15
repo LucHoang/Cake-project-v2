@@ -182,11 +182,11 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="contact__address__item">
-                            <h6>san bernardino</h6>
+                            <h6>Hà Nội</h6>
                             <ul>
                                 <li>
                                     <span class="icon_pin_alt"></span>
-                                    <p>795 W 5th St, San Bernardino, CA 92410, USA</p>
+                                    <p>795 W 5th St, CA 92410, Việt Nam</p>
                                 </li>
                                 <li><span class="icon_headphones"></span>
                                     <p>+1 800-786-1000</p>
@@ -199,11 +199,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="contact__address__item">
-                            <h6>Los angeles</h6>
+                            <h6>Nghệ An</h6>
                             <ul>
                                 <li>
                                     <span class="icon_pin_alt"></span>
-                                    <p>639 S Spring St, Los Angeles, CA 90014, USA</p>
+                                    <p>639 S Spring St, CA 90014, Việt Nam</p>
                                 </li>
                                 <li><span class="icon_headphones"></span>
                                     <p>+1 213-612-3000</p>
@@ -216,11 +216,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="contact__address__item">
-                            <h6>san bernardino</h6>
+                            <h6>Đà Nẵng</h6>
                             <ul>
                                 <li>
                                     <span class="icon_pin_alt"></span>
-                                    <p>1000 Lakepoint Dr, Frisco, CO 80443, USA</p>
+                                    <p>1000 Lakepoint Dr, CO 80443, Việt Nam</p>
                                 </li>
                                 <li><span class="icon_headphones"></span>
                                     <p>+1 800-786-1000</p>
