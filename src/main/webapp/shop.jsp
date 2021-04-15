@@ -223,7 +223,7 @@
                             </a>
                             <div class="product__item__text">
                                 <h6><a href="/ProductServlet?action=view&id=${o.getProductId()}&categoryId=${o.getCategoryId()}">${o.name}</a></h6>
-                                <div class="product__item__price">$${o.unitPrice}</div>
+                                <div class="product__item__price">${o.unitPrice} VNĐ</div>
                                 <div class="cart_add">
                                     <c:if test="${sessionScope.account != null}">
                                         <a href="/CartServlet?action=insert&productName=${o.getName()}&productPrice=${o.getUnitPrice()}&priceTotal=${o.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${o.getThumbnail()}&productId=${o.getProductId()}">Thêm vào giỏ hàng</a>

@@ -122,8 +122,6 @@
         console.log( document.getElementById("userName").value);
         return true;
     }
-
-
     (function () { // effect validation bootstrap
         'use strict'
         // Fetch all the forms we want to apply custom Bootstrap validation styles to

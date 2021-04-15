@@ -231,7 +231,7 @@
                                 <ul class="checkout__total__products">
                                     <c:set var = "stt" value = "${0}"/>
                                     <c:forEach items='${requestScope["carts"]}' var="cart">
-                                    <li><samp><c:out value = "${stt = stt + 1}"/></samp>. ${cart.getProductName()} (x${cart.getQuantity()}) <span>$${cart.getProductPrice()*cart.getQuantity()}</span></li>
+                                    <li><samp><c:out value = "${stt = stt + 1}"/></samp>. ${cart.getProductName()} (x${cart.getQuantity()}) <span>${cart.getProductPrice()*cart.getQuantity()} VNĐ</span></li>
                                     </c:forEach>
                                 </ul>
                                 <ul class="checkout__total__all">
@@ -239,8 +239,8 @@
                                     <c:forEach items='${requestScope["carts"]}' var="cart">
                                         <span hidden>${total = total + cart.getProductPrice()*cart.getQuantity()}</span>
                                     </c:forEach>
-                                    <li>Tạm tính <span>$<c:out value = "${total}"/></span></li>
-                                    <li>Tổng <span>$<c:out value = "${total}"/></span></li>
+                                    <li>Tạm tính <span><c:out value = "${total}"/> VNĐ</span></li>
+                                    <li>Tổng <span><c:out value = "${total}"/> VNĐ</span></li>
                                 </ul>
                                 <button type="submit" class="site-btn">ĐẶT HÀNG</button>
                             </div>

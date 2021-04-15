@@ -215,7 +215,7 @@
                                         <input type="submit" value=" Update "/>
                                         </form>
                                     </td>
-                                    <td class="cart__price">$ <c:out value="${cart.getProductPrice()*cart.getQuantity()}"/></td>
+                                    <td class="cart__price"><c:out value="${cart.getProductPrice()*cart.getQuantity()}"/> VNĐ</td>
                                     <td class="cart__close"><a href="/CartServlet?action=delete&id=${cart.getCartId()}&userId=${account.getUserId()}"><span class="icon_close"></span></a></td>
                                 </tr>
                             </c:forEach>
@@ -253,8 +253,8 @@
                             <c:forEach items='${requestScope["carts"]}' var="cart">
                                 <span hidden>${total = total + cart.getProductPrice()*cart.getQuantity()}</span>
                             </c:forEach>
-                            <li>Tạm tính <span>$ <c:out value = "${total}"/></span></li>
-                            <li>Tổng <span>$ <c:out value = "${total}"/></span></li>
+                            <li>Tạm tính <span><c:out value = "${total}"/> VNĐ</span></li>
+                            <li>Tổng <span><c:out value = "${total}"/> VNĐ</span></li>
                         </ul>
                         <a href="/CheckoutServlet?userId=${account.getUserId()}" class="primary-btn">TIẾN HÀNH THANH TOÁN</a>
                     </div>

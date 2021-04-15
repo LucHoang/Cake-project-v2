@@ -214,7 +214,7 @@
                     <div class="product__details__text">
                         <div class="product__label">${category.getName()}</div>
                         <h4>${product.getName()}</h4>
-                        <h5>$${product.getUnitPrice()}</h5>
+                        <h5>${product.getUnitPrice()} VNĐ</h5>
                         <p>${product.getProductDescription()}</p>
                         <ul>
                             <li>SKU: <span>${product.getProductId()}</span></li>
@@ -245,7 +245,7 @@
                                         <%--                            <a href="#" class="primary-btn">Add to cart</a>--%>
                                         <%--                            <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>--%>
                                         <%--                                <button class="primary-btn" type="submit">Add to cart</button>--%>
-                                    <input class="primary-btn" style="border: none" type="submit" value="Add to cart"/>
+                                    <input class="primary-btn" style="border: none" type="submit" value="Thêm vào giỏ hàng"/>
                                 </form>
                             </c:if>
                         </div>
@@ -327,13 +327,13 @@
                             </a>
                             <div class="product__item__text">
                                 <h6><a href="/ProductServlet?action=view&id=${product.getProductId()}&categoryId=${product.getCategoryId()}">${product.getName()}</a></h6>
-                                <div class="product__item__price">$${product.getUnitPrice()}</div>
+                                <div class="product__item__price">${product.getUnitPrice()} VNĐ</div>
                                 <div class="cart_add">
                                     <c:if test="${sessionScope.account != null}">
-                                    <a href="/CartServlet?action=insert&productName=${product.getName()}&productPrice=${product.getUnitPrice()}&priceTotal=${product.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${product.getThumbnail()}&productId=${product.getProductId()}">Add to cart</a>
+                                    <a href="/CartServlet?action=insert&productName=${product.getName()}&productPrice=${product.getUnitPrice()}&priceTotal=${product.getUnitPrice()}&userId=${account.getUserId()}&thumbnail=${product.getThumbnail()}&productId=${product.getProductId()}">Thêm vào giỏ hàng</a>
                                     </c:if>
                                     <c:if test="${sessionScope.account == null}">
-                                        <a href="login.jsp">Add to cart</a>
+                                        <a href="login.jsp">Thêm vào giỏ hàng</a>
                                     </c:if>
                                 </div>
                             </div>
